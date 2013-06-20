@@ -12,6 +12,8 @@
  * @author Buckeye Interactive
  */
 
+require_once dirname( __FILE__ ) . '/widget.php';
+
 class WP_Instagram {
 
   /**
