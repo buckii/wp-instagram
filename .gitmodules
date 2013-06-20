@@ -1,0 +1,3 @@
+[submodule "lib/Instagram-PHP-API"]
+	path = lib/Instagram-PHP-API
+	url = https://github.com/cosenary/Instagram-PHP-API.git
