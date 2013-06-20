@@ -194,8 +194,9 @@ class WP_Instagram {
    */
   public function print_oauth_section_info() {
     printf( '<p>%s</p>', __( 'Set your Instagram API credentials here. You can generate them by <a href="http://instagram.com/developer/clients/register/" target="_blank">creating a new client</a>.', 'wp-instagram' ) );
+    printf( '<p>%s</p>', sprintf( __( 'Your OAuth <code>redirect_uri</code> attribute should be: %s', 'wp-instagram' ), '<br /><kbd>' . admin_url( self::SETTINGS_PAGE ) . '</kbd>' ) );
     if ( $this->get_option( 'client_id' ) ) {
-      printf( '<p><a href="%s">%s</a></p>', $this->api->getLoginUrl(), __( 'Authenticate with Instagram', 'wp-instagram' ) );
+      printf( '<p><a href="%s" class="button">%s</a></p>', $this->api->getLoginUrl(), __( 'Authenticate with Instagram', 'wp-instagram' ) );
     }
   }
 
