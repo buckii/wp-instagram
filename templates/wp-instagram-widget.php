@@ -2,19 +2,19 @@
 /**
  * Default template for WP Instagram sidebar widgets
  *
- * @package WP Instagram
+ * @package Buckii Instagram
  * @author Buckeye Interactive
  */
 
-global $wp_instagram;
-$media = $wp_instagram->api->getUserMedia();
+global $bii_instagram;
+$media = $bii_instagram->api->getUserMedia();
 
 ?>
 
-<div class="wp-instagram-photos">
+<div class="bii-instagram-photos">
 
 <?php if ( $media->data ) : ?>
-  <ul class="wp-instagram-photos">
+  <ul class="bii-instagram-photos">
   <?php foreach ( $media->data as $photo ) : ?>
 
     <li>
@@ -27,4 +27,4 @@ $media = $wp_instagram->api->getUserMedia();
   </ul>
 <?php endif; ?>
 
-</div><!-- .wp-instagram-photos -->
+</div><!-- .bii-instagram-photos -->

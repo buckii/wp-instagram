@@ -2,11 +2,11 @@
 /**
  * Instagram widget
  *
- * @package WP Instagram
+ * @package Buckii Instagram
  * @author Buckeye Interactive
  */
 
-class WP_Instagram_Widget extends WP_Widget {
+class Bii_Instagram_Widget extends WP_Widget {
 
   /**
    * Widget constructor
@@ -14,8 +14,8 @@ class WP_Instagram_Widget extends WP_Widget {
    * @since 1.0
    */
   public function __construct() {
-    parent::__construct( 'wp_instagram', __( 'Instagram Feed', 'wp-instagram' ),
-      array( 'description' => 'Embed your photos from Instagram', 'wp-instagram' ),
+    parent::__construct( 'bii_instagram', __( 'Instagram Feed', 'bii-instagram' ),
+      array( 'description' => 'Embed your photos from Instagram', 'bii-instagram' ),
       array( 'width' => 350 )
     );
   }
@@ -31,13 +31,13 @@ class WP_Instagram_Widget extends WP_Widget {
    * @todo Actual template loading, not just an include
    */
   public function widget( $args, $instance ) {
-    global $wp_instagram;
-    if ( ! $wp_instagram instanceof WP_Instagram ) {
-      $wp_instagram = new WP_Instagram;
+    global $bii_instagram;
+    if ( ! $bii_instagram instanceof Bii_Instagram ) {
+      $bii_instagram = new Bii_Instagram;
     }
 
     echo $args['before_widget'];
-    include dirname( __FILE__ ) . '/templates/wp-instagram-widget.php';
+    include dirname( __FILE__ ) . '/templates/bii-instagram-widget.php';
     echo $args['after_widget'];
   }
 
@@ -50,7 +50,7 @@ class WP_Instagram_Widget extends WP_Widget {
    */
   public function form( $instance ) {
     print '<p>';
-    printf( '<label for="%s">%s</label>', $this->get_field_id( 'limit' ), __( 'Limit:', 'wp-instagram' ) );
+    printf( '<label for="%s">%s</label>', $this->get_field_id( 'limit' ), __( 'Limit:', 'bii-instagram' ) );
     printf( '<input name="%s" id="%s" type="text" class="" value="%s" />', $this->get_field_name( 'limit' ), $this->get_field_id( 'limit' ), ( isset( $instance['limit'] ) ? esc_attr( $instance['limit'] ) : '' ) );
     print '</p>';
   }
@@ -76,7 +76,7 @@ class WP_Instagram_Widget extends WP_Widget {
  * @uses register_widget
  * @since 1.0
  */
-function wp_instagram_register_widget() {
-  register_widget( 'WP_Instagram_Widget' );
+function bii_instagram_register_widget() {
+  register_widget( 'Bii_Instagram_Widget' );
 }
-add_action( 'widgets_init', 'wp_instagram_register_widget' );
+add_action( 'widgets_init', 'bii_instagram_register_widget' );
